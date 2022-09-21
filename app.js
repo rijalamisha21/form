@@ -6,21 +6,20 @@ const getId= (id)=>{
     return document.getElementById(id)
 }
 
-getId("register").addEventListener("click", ()=>{
     
-    getId("form").addEventListener("submit", (e)=>{
+    getId("form").onsubmit= (e)=>{
         console.log("hii")
         e.preventDefault();
         NameError();
         passwordError();
         // emailError();
+    }
 
-    })
-})
+
 const NameError= ()=>{
-   const firstName= getId("firstname").value;
+   const firstName= getId("firstname");
    const errorfirstName= getId("firstname-error");
-   if(!firstName.length){
+   if(!firstName.value){
     errorfirstName.innerHTML= "First Name is required";
    }
    else{
@@ -31,7 +30,8 @@ const NameError= ()=>{
 const passwordError= ()=>{
     const password= getId("password")
     const errorPassword= getId("password-error")
-    if (!password.value.length) {
+    if (!password.value) {
         errorPassword.innerHTML = `Password field is empty`;
       }
+    
 }
